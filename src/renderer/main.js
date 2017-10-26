@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+import Database from 'nedb'
+
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify)
@@ -12,6 +14,11 @@ Vue.use(Vuetify)
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
+
+Vue.db = Vue.prototype.$db = new Database({
+  filename: 'data/data.db',
+  autoload: true
+})
 
 /* eslint-disable no-new */
 new Vue({
