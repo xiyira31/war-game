@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app" light>
+  <v-app id="app" dark>
     <v-navigation-drawer
       clipped
       persistent
@@ -32,8 +32,20 @@
     </v-toolbar>
     <main>
       <v-content>
-        <v-container fluid fill-height>
-          <router-view></router-view>
+        <v-container fluid grid-list-md>
+          <v-layout row wrap>
+            <v-flex md12>
+              <v-breadcrumbs icons divider="chevron_right" style="justify-content: start;">
+                <v-breadcrumbs-item>
+                  主页
+                </v-breadcrumbs-item>
+                <v-breadcrumbs-item>
+                  设置
+                </v-breadcrumbs-item>
+              </v-breadcrumbs>
+            </v-flex>
+            <router-view></router-view>
+          </v-layout>
         </v-container>
       </v-content>
     </main>
